@@ -1,14 +1,24 @@
 (function() {
-    
+    var userService = UserService.getInstance();
+ 
     $(document).on("pageinit", "#login", function(e) {
         e.preventDefault();
         
         $("#loginUser").on("tap", function(e) {
             e.preventDefault();
             
-            // Here save user information ...
+            try {
+                userService.saveUser({
+                    'name': $("#userName").val(),
+                    'email': $("#userEmail").val(),
+                });
                        
-            $.mobile.changePage("#weather");
+                $.mobile.changePage("#weather");
+            } catch (error) {
+                $("#loginFormMessages").html(error.message);
+            }
         });
     });
+ 
+ 
 })();

@@ -1,42 +1,24 @@
 (function() {
-    
+    var userService = UserService.getInstance();
+ 
     $(document).on("pageinit", "#login", function(e) {
         e.preventDefault();
         
         $("#loginUser").on("tap", function(e) {
             e.preventDefault();
             
-            if (! $("#loginForm").valid()) {
-                return;
-            }
-            
-            // Here save user information ...
+            try {
+                userService.saveUser({
+                    'name': $("#userName").val(),
+                    'email': $("#userEmail").val(),
+                });
                        
-            $.mobile.changePage("#weather");
+                $.mobile.changePage("#weather");
+            } catch (error) {
+                $("#loginFormMessages").html(error.message);
+            }
         });
     });
  
-    $(document).on("pageshow", "#login", function(e) {
-        e.preventDefault();
-                
-        $("#loginForm").validate({
-            errorLabelContainer: "#loginFormMessages",
-            wrapper: "li",
-            rules: {
-                userName: "required",
-                userEmail: {
-                    required: true,
-                    email: true
-                }
-            },
-            messages: {
-                userName: "Please specify user name",
-                userEmail: {
-                    required: "Please specify email",
-                    email: "Please enter valid email"
-                }
-            }
-        });
-    });
  
 })();

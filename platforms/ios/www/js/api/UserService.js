@@ -14,12 +14,29 @@ var UserService = (function () {
           saveUser: function (user) {
               if (!user.name || !user.email || user.name.trim().length == 0 || user.email.trim().length == 0) {
                   console.log("You need to specify both user name and email!");
-                  throw "You need to specify both user name and email!";
+                   
+                  throw {
+                      code: "EMPTY_FIELDS",
+                      message: "You need to specify both user name and email!"
+                  };
+              }
+                   
+              if (user.name.trim().length > 6) {
+                    console.log("You need to specify both user name and email!");
+                   
+                    throw {
+                        code: "MAX_LENGTH_EXCEEDED",
+                        message: "User name must not exceed 6 characters!"
+                    };
               }
                    
               if (! isValidEmail(user.email)) {
                   console.log("Email is invalid!");
-                  throw "Email is invalid!";
+                  
+                  throw {
+                      code: "INVALID_FORMAT",
+                      message: "Email is invalid!"
+                  };
               }
               
               window.localStorage.setItem(USER_KEY, JSON.stringify(user));

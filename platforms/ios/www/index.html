@@ -28,12 +28,13 @@
             
             <script src="jqueryMobile/jquery-1.10.2.min.js"></script>
             <script src="jqueryMobile/jquery.mobile-1.4.0.min.js"></script>
-            <script src="jqueryMobile/jqm.page.params.js"></script>
             <script src="js/common.js"></script>
             
             <title>Weather</title>
             </head>
     <body>
+        <div id="landing" data-role="page">Loading</div>
+        
         <div data-role="page" id="login">
             <div data-role="header" data-position="fixed">
                 <h1>First Time login</h1>
@@ -52,7 +53,7 @@
                     
                     <input type="button" id="loginUser" data-icon="action" value="Login"/>
                     
-                    <div id="loginFormMessages"></div>
+                    <div id="loginFormMessages" class="error"></div>
                 </form>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -62,9 +63,9 @@
         <div data-role="page" id="weather">
             <div data-role="header" data-position="fixed">
                 <h1>Weather Info</h1>
-                <a href="#" data-role="button" data-rel="back" data-icon="back">Back</a>
             </div>
             <div data-role="content">
+                <h2>Welcome <span id="user"></span>,</h2>
                 <form id="weatherForm">
                     <div class="ui-field-contain">
                         <label for="location">Location</label>
@@ -85,6 +86,7 @@
         <script type="text/javascript" src="js/api/WeatherService.js"></script>
         
         <!-- View controller files -->
+        <script type="text/javascript" src="js/vc/landing.js"></script>        
         <script type="text/javascript" src="js/vc/login.js"></script>
         <script type="text/javascript" src="js/vc/weather.js"></script>
         

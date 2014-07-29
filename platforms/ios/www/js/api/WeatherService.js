@@ -11,10 +11,7 @@ var WeatherService = (function () {
               }
               
               $.ajax({
-                 url: "http://api.openweathermap.org/data/2.5/weather",
-                  data: {
-                      q: locationText
-                  },
+                 url: "http://api.openweathermap.org/data/2.5/weather?q=" + escape(locationText),
                   success: function(response) {
                      console.log(response);
                      
@@ -25,10 +22,11 @@ var WeatherService = (function () {
                      }
                      
                      successCallback({
-                                     'temperature': (response.main.temp - 273.15) + " °C",
+                                     'temperature': (response.main.temp - 273.15).toFixed(1) + " °C",
                                      'pressure': response.main.pressure,
                                      'humidity': response.main.humidity + "%",
-                                     'icon': (response.weather[0]) ? BASE_ICON_URL+ (response.weather[0].icon) : ""
+                                     'description': (response.weather[0]) ? (response.weather[0].description) : "NA",
+                                     'icon': (response.weather[0]) ? BASE_ICON_URL+ (response.weather[0].icon) + ".png" : ""
                                      });
                   }
               });

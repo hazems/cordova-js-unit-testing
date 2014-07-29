@@ -18,7 +18,7 @@ describe("UserService", function() {
          
     it("should NOT be able to save a user with invalid email", function() {
         var user = {
-            'name': 'Hazem Saleh',
+            'name': 'Hazem',
             'email': 'Invalid_Email'
         };
             
@@ -27,9 +27,20 @@ describe("UserService", function() {
                }).toThrow();
     });
          
+    it("should NOT be able to save a user with a user name more than 6 characters", function() {
+        var user = {
+            'name': 'LengthyUserName',
+            'email': 'hazems@apache.org'
+            };
+            
+        expect(function() {
+                   userService.saveUser(user);
+              }).toThrow();
+    });
+         
     it("should be able to save and load a valid user", function() {
         var originalUser = {
-            'name': 'Hazem Saleh',
+            'name': 'Hazem',
             'email': 'hazems@apache.org'
         };
             

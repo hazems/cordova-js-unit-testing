@@ -1,32 +1,41 @@
 (function() {
-    
+    var weatherService = WeatherService.getInstance();
+    var userService = UserService.getInstance();
+ 
     $(document).on("pageinit", "#weather", function(e) {
         e.preventDefault();
         
         $("#getWeatherForecast").on("tap", function(e) {
             e.preventDefault();
             
-            if (! $("#weatherForm").valid()) {
-                return;
-            }
+            $("#location").blur(); //Hide keyboard
             
-            // Call APIs here ...
+            $.mobile.loading('show');
+            
+            var successCallback = function(result) {
+                $.mobile.loading('hide');
+                $("#weatherResult").removeClass("error");
+                
+                var result = "<img class='center' src='" + result.icon + "'><br/>"
+                           + "Temperature: " + result.temperature + "<br/>"
+                           + "Humidity: " + result.humidity + "<br/>"
+                           + "Description: " + result.description + "<br/>";
+                
+                $("#weatherResult").html(result);
+            };
+                                    
+            var errorCallback = function(errorMessage) {
+                $.mobile.loading('hide');
+                $("#weatherResult").addClass("error");
+                $("#weatherResult").html(errorMessage);
+            };
+                                    
+            weatherService.getWeatherForecast($("#location").val(), successCallback, errorCallback);
         });
     });
  
     $(document).on("pageshow", "#weather", function(e) {
-        e.preventDefault();
-                
-        $("#weatherForm").validate({
-            errorLabelContainer: "#weatherFormMessages",
-            wrapper: "li",
-            rules: {
-                location: "required"
-            },
-            messages: {
-                location: "Please specify a location"
-            }
-        });
+        $("#user").html(userService.getUser().name || "");
     });
  
 })();

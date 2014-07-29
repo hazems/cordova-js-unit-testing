@@ -28,13 +28,13 @@
             
             <script src="jqueryMobile/jquery-1.10.2.min.js"></script>
             <script src="jqueryMobile/jquery.mobile-1.4.0.min.js"></script>
-            <script src="jqueryMobile/jqm.page.params.js"></script>
-            <script src="jqueryMobile/jquery.validate.min.js"></script>
             <script src="js/common.js"></script>
             
-            <title>Weather Forecast</title>
+            <title>Weather</title>
             </head>
     <body>
+        <div id="landing" data-role="page">Loading</div>
+        
         <div data-role="page" id="login">
             <div data-role="header" data-position="fixed">
                 <h1>First Time login</h1>
@@ -44,16 +44,16 @@
                 <form id="loginForm">
                     <div class="ui-field-contain">
                         <label for="userName">Name</label>
-                        <input type="text" id="userName" name="userName"></input>
+                        <input type="text" id="userName"></input>
                     </div>
                     <div class="ui-field-contain">
                         <label for="userEmail">Email</label>
-                        <input type="text" id="userEmail" name="userEmail"></input>
+                        <input type="text" id="userEmail"></input>
                     </div>
                     
                     <input type="button" id="loginUser" data-icon="action" value="Login"/>
                     
-                    <ul id="loginFormMessages"></ul>
+                    <div id="loginFormMessages" class="error"></div>
                 </form>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -62,21 +62,19 @@
         </div>
         <div data-role="page" id="weather">
             <div data-role="header" data-position="fixed">
-                <h1>Weather Forecast</h1>
-                <a href="#" data-role="button" data-rel="back" data-icon="back">Back</a>
+                <h1>Weather Info</h1>
             </div>
             <div data-role="content">
+                <h2>Welcome <span id="user"></span>,</h2>
                 <form id="weatherForm">
                     <div class="ui-field-contain">
                         <label for="location">Location</label>
-                        <input type="text" id="location" name="location"></input>
+                        <input type="text" id="location"></input>
                     </div>
-                    <input type="button" id="getWeatherForecast" data-icon="action" value="Weather Forecast"/>
+                    <input type="button" id="getWeatherForecast" data-icon="action" value="Weather Info"/>
                     
                     <div id="weatherResult">
                     </div>
-                    
-                    <ul id="weatherFormMessages"></ul>
                 </form>
             </div>
         </div>
@@ -85,10 +83,10 @@
         
         <!-- API JS files -->
         <script type="text/javascript" src="js/api/UserService.js"></script>
-        <script type="text/javascript" src="js/api/LocationService.js"></script>
         <script type="text/javascript" src="js/api/WeatherService.js"></script>
         
         <!-- View controller files -->
+        <script type="text/javascript" src="js/vc/landing.js"></script>        
         <script type="text/javascript" src="js/vc/login.js"></script>
         <script type="text/javascript" src="js/vc/weather.js"></script>
         
