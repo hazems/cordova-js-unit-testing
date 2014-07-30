@@ -5,7 +5,7 @@ describe("UserService", function() {
         userService = UserService.getInstance();
     });
          
-    it("should NOT be able to save a user with an empty name", function() {
+    it("should NOT be able to save a user with an empty user name", function() {
         var user = {
             'name': ' ',
             'email': 'hazems@apache.org'
@@ -14,7 +14,7 @@ describe("UserService", function() {
         expect(function() {
                    userService.saveUser(user);
                }).toThrow();
-    });
+       });
          
     it("should NOT be able to save a user with invalid email", function() {
         var user = {
