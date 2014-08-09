@@ -19,7 +19,7 @@ describe("WeatherService", function() {
             done();
         };
      
-        weatherService.getWeatherForecast("Paris, France", successCallback, errorCallback);
+        weatherService.getWeatherInfo("Paris, France", successCallback, errorCallback);
     });
          
     it("should NOT be able to get weather information for an invalid place", function(done) {
@@ -33,7 +33,7 @@ describe("WeatherService", function() {
             done();
         };
             
-        weatherService.getWeatherForecast("Invalid Place", successCallback, errorCallback);
+        weatherService.getWeatherInfo("Invalid Place", successCallback, errorCallback);
     });
          
     afterEach(function() {

@@ -14,8 +14,8 @@
                 });
                        
                 $.mobile.changePage("#weather");
-            } catch (error) {
-                $("#loginFormMessages").html(error.message);
+            } catch (exception) {
+                $("#loginFormMessages").html(exception.message);
             }
         });
     });

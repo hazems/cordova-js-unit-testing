@@ -5,23 +5,23 @@ var WeatherService = (function () {
  
   function createObject() {
       return {
-          getWeatherForecast: function (locationText, successCallback, errorCallback) {
+          getWeatherInfo: function (locationText, successCallback, errorCallback) {
               if (!location || locationText.trim().length == 0) {
                   errorCallback("You have to specify a location!"); 
               }
               
               $.ajax({
-                 url: "http://api.openweathermap.org/data/2.5/weather?q=" + escape(locationText),
+                  url: "http://api.openweathermap.org/data/2.5/weather?q=" + escape(locationText),
                   success: function(response) {
-                     console.log(response);
+                      console.log(response);
                      
-                     // If response code is not 200 for this request then there is an error ...
-                     if (response.cod != 200) {
-                        errorCallback(response.message);
-                        return;
-                     }
+                      // If response code is not 200 for this request then there is an error ...
+                      if (response.cod != 200) {
+                          errorCallback(response.message);
+                          return;
+                      }
                      
-                     successCallback({
+                      successCallback({
                                      'temperature': (response.main.temp - 273.15).toFixed(1) + " °C",
                                      'pressure': response.main.pressure,
                                      'humidity': response.main.humidity + "%",

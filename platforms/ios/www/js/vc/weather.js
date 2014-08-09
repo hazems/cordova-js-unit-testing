@@ -5,7 +5,7 @@
     $(document).on("pageinit", "#weather", function(e) {
         e.preventDefault();
         
-        $("#getWeatherForecast").on("tap", function(e) {
+        $("#getWeatherInfo").on("tap", function(e) {
             e.preventDefault();
             
             $("#location").blur(); //Hide keyboard
@@ -30,7 +30,7 @@
                 $("#weatherResult").html(errorMessage);
             };
                                     
-            weatherService.getWeatherForecast($("#location").val(), successCallback, errorCallback);
+            weatherService.getWeatherInfo($("#location").val(), successCallback, errorCallback);
         });
     });
  
