@@ -5,7 +5,7 @@ describe("WeatherService", function() {
     beforeEach(function() {
         weatherService = WeatherService.getInstance();
         originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 8000;
     });
 
     it("should be able to get weather information for a valid place", function(done) {

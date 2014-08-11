@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">api/UserService.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(29 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">92.86% <small>(13 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">100% <small>(6 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(7 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(29 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -275,12 +275,11 @@
 57
 58
 59
-60
-61
-62
-63
-64
-65</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+60</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -298,9 +297,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3</span>
@@ -309,18 +305,12 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -344,7 +334,11 @@
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//Singleton Object
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var UserValidationException = function(code, message) {
+    this.code = code;
+    this.message = message;
+}
+&nbsp;
 var UserService = (function () {
   var instance;
   var USER_KEY = "WEATHER_USER";
@@ -361,28 +355,19 @@ var UserService = (function () {
               if (!user.name || !user.email || user.name.trim().length == 0 || user.email.trim().length == 0) {
                   console.log("You need to specify both user name and email!");
                    
-                  throw {
-                      code: "EMPTY_FIELDS",
-                      message: "You need to specify both user name and email!"
-                  };
+                  throw new UserValidationException("EMPTY_FIELDS", "You need to specify both user name and email!");
               }
                    
               if (user.name.trim().length &gt; 6) {
-                    console.log("You need to specify both user name and email!");
+                    console.log("User name must not exceed 6 characters!");
                    
-                    throw {
-                        code: "MAX_LENGTH_EXCEEDED",
-                        message: "User name must not exceed 6 characters!"
-                    };
+                    throw new UserValidationException("MAX_LENGTH_EXCEEDED", "User name must not exceed 6 characters!");
               }
                    
               if (! isValidEmail(user.email)) {
                   console.log("Email is invalid!");
                   
-                  throw {
-                      code: "INVALID_FORMAT",
-                      message: "Email is invalid!"
-                  };
+                  throw new UserValidationException("INVALID_FORMAT", "Email is invalid!");
               }
               
               window.localStorage.setItem(USER_KEY, JSON.stringify(user));
@@ -413,7 +398,7 @@ var UserService = (function () {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jul 31 2014 00:43:45 GMT+0200 (EET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Aug 11 2014 13:42:54 GMT+0300 (EEST)</div>
 </div>
 
 <script src="../prettify.js"></script>
