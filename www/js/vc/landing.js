@@ -4,12 +4,18 @@
     $(document).on("pageinit", "#landing", function(e) {
         e.preventDefault();
         
-        var home = '#login';
+        function onDeviceReady () {
+            console.log("Apache Cordova is loaded");
+                   
+            var home = '#login';
         
-        if (userService.getUser()) {
-            home = '#weather';
+            if (userService.getUser()) {
+                home = '#weather';
+            }
+        
+            $.mobile.changePage(home);
         }
-        
-        $.mobile.changePage(home);
+                   
+        document.addEventListener("deviceready", onDeviceReady, false);
     });
 })();
