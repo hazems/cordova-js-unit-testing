@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="PhantomJS 1.9.7 (Mac OS X)" package="" timestamp="2014-08-11T17:50:29" id="0" hostname="IBMs-MacBook-Pro-2.local" tests="6" errors="0" failures="0" time="3.885">
+  <testsuite name="PhantomJS 1.9.7 (Mac OS X)" package="" timestamp="2016-04-23T23:48:47" id="0" hostname="HazemSaleh-MacBook.local" tests="6" errors="0" failures="0" time="0.3">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.7 Safari/534.34"/>
     </properties>
     <testcase name="should NOT be able to save a user with an empty user name" time="0.002" classname="PhantomJS 1.9.7 (Mac OS X).UserService"/>
-    <testcase name="should NOT be able to save a user with invalid email" time="0.001" classname="PhantomJS 1.9.7 (Mac OS X).UserService"/>
+    <testcase name="should NOT be able to save a user with invalid email" time="0" classname="PhantomJS 1.9.7 (Mac OS X).UserService"/>
     <testcase name="should NOT be able to save a user with a user name more than 6 characters" time="0.001" classname="PhantomJS 1.9.7 (Mac OS X).UserService"/>
-    <testcase name="should be able to save and load a valid user" time="0.001" classname="PhantomJS 1.9.7 (Mac OS X).UserService"/>
-    <testcase name="should be able to get weather information for a valid place" time="2.651" classname="PhantomJS 1.9.7 (Mac OS X).WeatherService"/>
-    <testcase name="should NOT be able to get weather information for an invalid place" time="1.229" classname="PhantomJS 1.9.7 (Mac OS X).WeatherService"/>
+    <testcase name="should be able to save and load a valid user" time="0" classname="PhantomJS 1.9.7 (Mac OS X).UserService"/>
+    <testcase name="should be able to get weather information for a valid place" time="0.195" classname="PhantomJS 1.9.7 (Mac OS X).WeatherService"/>
+    <testcase name="should NOT be able to get weather information for an invalid place" time="0.102" classname="PhantomJS 1.9.7 (Mac OS X).WeatherService"/>
     <system-out><![CDATA[PhantomJS 1.9.7 (Mac OS X) LOG: 'You need to specify both user name and email!'
 ,PhantomJS 1.9.7 (Mac OS X) LOG: 'Email is invalid!'
 ,PhantomJS 1.9.7 (Mac OS X) LOG: 'User name must not exceed 6 characters!'
-,PhantomJS 1.9.7 (Mac OS X) LOG: Object{coord: Object{lon: 2.35, lat: 48.85}, sys: Object{type: 1, id: 5615, message: 0.036, country: 'FR', sunrise: 1407731904, sunset: 1407784384}, weather: [Object{id: ..., main: ..., description: ..., icon: ...}], base: 'cmc stations', main: Object{temp: 293.31, pressure: 1014, humidity: 56, temp_min: 292.15, temp_max: 294.15}, wind: Object{speed: 5.1, deg: 240}, clouds: Object{all: 0}, dt: 1407774600, id: 2988507, name: 'Paris', cod: 200}
-,PhantomJS 1.9.7 (Mac OS X) LOG: Object{message: 'Error: Not found city', cod: '404'}
+,PhantomJS 1.9.7 (Mac OS X) LOG: Object{coord: Object{lon: 2.35, lat: 48.85}, weather: [Object{id: ..., main: ..., description: ..., icon: ...}], base: 'stations', main: Object{temp: 277.61, pressure: 1020, humidity: 65, temp_min: 275.93, temp_max: 279.26}, visibility: 10000, wind: Object{speed: 3.1, deg: 10}, clouds: Object{all: 0}, dt: 1461452867, sys: Object{type: 1, id: 5615, message: 0.0337, country: 'FR', sunrise: 1461386526, sunset: 1461437772}, id: 2988507, name: 'Paris', cod: 200}
+,PhantomJS 1.9.7 (Mac OS X) LOG: Object{cod: '404', message: 'Error: Not found city'}
 
 ]]></system-out>
     <system-err/>
