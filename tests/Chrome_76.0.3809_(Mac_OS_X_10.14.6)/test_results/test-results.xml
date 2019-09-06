@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 76.0.3809 (Mac OS X 10.14.6)" package="" timestamp="2019-09-06T02:44:40" id="0" hostname="Hazems-MBP.home" tests="6" errors="0" failures="0" time="0.008">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"/>
+  </properties>
+  <testcase name="WeatherService should NOT be able to get weather information for an invalid place" time="0.004" classname="Chrome_76_0_3809_(Mac_OS_X_10_14_6).WeatherService"/>
+  <testcase name="WeatherService should be able to get weather information for a valid place" time="0" classname="Chrome_76_0_3809_(Mac_OS_X_10_14_6).WeatherService"/>
+  <testcase name="UserService should NOT be able to save a user with an empty user name" time="0.002" classname="Chrome_76_0_3809_(Mac_OS_X_10_14_6).UserService"/>
+  <testcase name="UserService should NOT be able to save a user with invalid email" time="0.001" classname="Chrome_76_0_3809_(Mac_OS_X_10_14_6).UserService"/>
+  <testcase name="UserService should NOT be able to save a user with a user name more than 6 characters" time="0" classname="Chrome_76_0_3809_(Mac_OS_X_10_14_6).UserService"/>
+  <testcase name="UserService should be able to save and load a valid user" time="0.001" classname="Chrome_76_0_3809_(Mac_OS_X_10_14_6).UserService"/>
+  <system-out>
+    <![CDATA[Chrome 76.0.3809 (Mac OS X 10.14.6) LOG: 'You need to specify both user name and email!'
+,Chrome 76.0.3809 (Mac OS X 10.14.6) LOG: 'Email is invalid!'
+,Chrome 76.0.3809 (Mac OS X 10.14.6) LOG: 'User name must not exceed 6 characters!'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

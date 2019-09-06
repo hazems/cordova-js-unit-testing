@@ -2,7 +2,7 @@
 var WeatherService = (function () {
   var instance;
   var BASE_ICON_URL = "http://openweathermap.org/img/w/";
-  var APP_ID = "YOUR_APP_ID_HERE";
+  var APP_ID = "a227d5975e0701b5ef847bdc12654ee2";
 
   function createObject() {
       return {
