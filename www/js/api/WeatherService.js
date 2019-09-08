@@ -1,4 +1,3 @@
-//Singleton Object
 var WeatherService = (function () {
   var instance;
   var BASE_ICON_URL = "http://openweathermap.org/img/w/";
